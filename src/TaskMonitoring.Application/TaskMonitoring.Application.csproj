@@ -7,6 +7,14 @@
     <Nullable>enable</Nullable>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+
+ 
+	  <PackageId>TaskMonitoring</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Yasin Asadnezhad</Authors>
+	  <Description>A C# library to monitor and manage tasks and ThreadPool usage.</Description>
+	  <PackageTags>ThreadPool Task Monitoring NuGet</PackageTags>
+	  <RepositoryUrl>https://github.com/YAS-SIIN/TaskMonitoring</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
