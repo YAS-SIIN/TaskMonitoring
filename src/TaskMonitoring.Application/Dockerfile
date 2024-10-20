@@ -10,19 +10,19 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["TaskMonitoring/TaskMonitoring.csproj", "TaskMonitoring/"]
-RUN dotnet restore "./TaskMonitoring/TaskMonitoring.csproj"
+COPY ["src/TaskMonitoring.Application/TaskMonitoring.Application.csproj", "src/TaskMonitoring.Application/"]
+RUN dotnet restore "./src/TaskMonitoring.Application/TaskMonitoring.Application.csproj"
 COPY . .
-WORKDIR "/src/TaskMonitoring"
-RUN dotnet build "./TaskMonitoring.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/src/TaskMonitoring.Application"
+RUN dotnet build "./TaskMonitoring.Application.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./TaskMonitoring.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./TaskMonitoring.Application.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "TaskMonitoring.dll"]
+ENTRYPOINT ["dotnet", "TaskMonitoring.Application.dll"]

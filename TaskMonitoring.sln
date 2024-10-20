@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskMonitoring", "TaskMonitoring\TaskMonitoring.csproj", "{24FC21DB-25B8-43CF-A3BF-E4D65ABAB56D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskMonitoring.Application", "src\TaskMonitoring.Application\TaskMonitoring.Application.csproj", "{914663AC-FB50-4279-9010-B3E7777C4E0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskMonitoring.UnitTest", "tests\TaskMonitoring.UnitTest\TaskMonitoring.UnitTest.csproj", "{9ABF7B02-003F-4616-B1D0-1C7F53DCBCB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{24FC21DB-25B8-43CF-A3BF-E4D65ABAB56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24FC21DB-25B8-43CF-A3BF-E4D65ABAB56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24FC21DB-25B8-43CF-A3BF-E4D65ABAB56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24FC21DB-25B8-43CF-A3BF-E4D65ABAB56D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{914663AC-FB50-4279-9010-B3E7777C4E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{914663AC-FB50-4279-9010-B3E7777C4E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{914663AC-FB50-4279-9010-B3E7777C4E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{914663AC-FB50-4279-9010-B3E7777C4E0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ABF7B02-003F-4616-B1D0-1C7F53DCBCB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ABF7B02-003F-4616-B1D0-1C7F53DCBCB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ABF7B02-003F-4616-B1D0-1C7F53DCBCB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ABF7B02-003F-4616-B1D0-1C7F53DCBCB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

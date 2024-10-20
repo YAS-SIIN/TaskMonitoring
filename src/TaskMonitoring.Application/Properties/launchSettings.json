@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "TaskMonitoring": {
+    "TaskMonitoring.Application": {
       "commandName": "Project"
     },
     "Container (Dockerfile)": {
