@@ -5,16 +5,16 @@ namespace TaskMonitoring.UnitTest;
 
 public class ThreadPoolMonitorTests
 {
-    private readonly ThreadPoolMonitor threadPoolMonitor;
+    private readonly ThreadPoolMonitor _threadPoolMonitor;
     public ThreadPoolMonitorTests()
     {
-        threadPoolMonitor = new ThreadPoolMonitor();
+        _threadPoolMonitor = new ThreadPoolMonitor();
     }
 
     [Fact]
     public void GetActiveThreadCount_ShouldReturnValidCount()
     {
-        var activeThreadCount = threadPoolMonitor.GetActiveThreadCount();
+        var activeThreadCount = _threadPoolMonitor.GetActiveThreadCount();
 
         Assert.True(activeThreadCount >= 0);
     }
@@ -22,7 +22,7 @@ public class ThreadPoolMonitorTests
     [Fact]
     public void GetThreadPoolStatus_ShouldReturnCorrectThreadAvailability()
     { 
-        ThreadPoolStatus status = threadPoolMonitor.GetThreadPoolStatus();
+        ThreadPoolStatus status = _threadPoolMonitor.GetThreadPoolStatus();
          
         Assert.NotNull(status);
         Assert.True(status.WorkerThreadsAvailable >= 0);

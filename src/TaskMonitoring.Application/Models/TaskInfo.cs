@@ -8,5 +8,6 @@ public class TaskInfo
     public DateTime? StartTime { get; set; }
     public DateTime? EndTime { get; set; }
     public TimeSpan? Duration => EndTime.HasValue && StartTime.HasValue ? EndTime.Value - StartTime.Value : null;
+    public Exception? Exception { get; set; }
 }
 
