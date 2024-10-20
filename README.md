@@ -82,3 +82,11 @@ int scheduledTaskCount = monitoringScheduler.GetScheduledTaskCount();
 Console.WriteLine($"Currently scheduled tasks: {scheduledTaskCount}");
 ```
 
+## Contributing
+Contributions are welcome! If you would like to contribute, please follow these steps:
+
+Fork the repository.
+- Create a new feature branch (git checkout -b feature/your-feature-name).
+- Commit your changes (git commit -m 'Add some feature').
+- Push to the branch (git push origin feature/your-feature-name).
+- Create a pull request.
