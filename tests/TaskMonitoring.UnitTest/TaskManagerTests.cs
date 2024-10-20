@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using TaskMonitoring.Application;
+using TaskMonitoring.Application.Models;
 
 namespace TaskMonitoring.UnitTest;
 
@@ -34,15 +35,46 @@ public class TaskManagerTests
 
     [Fact]
     public void GetPendingTaskCount_ShouldReturnPendingTasks()
-    { 
+    {
         var task1 = new Task(() => Task.Delay(1000));
         var task2 = new Task(() => Task.Delay(1000));
 
         _taskManager.TrackTask(task1);
         _taskManager.TrackTask(task2);
+  
+
         var pendingTaskCount = _taskManager.GetPendingTaskCount();
          
         Assert.Equal(2, pendingTaskCount);
+    }
+
+    [Fact]
+    public void GetTaskDetails_ShouldReturnAllTrackedTasks()
+    { 
+        var task1 = Task.Run(() => { });
+        var task2 = Task.Run(() => { });
+
+        _taskManager.TrackTask(task1);
+        _taskManager.TrackTask(task2);
+        Task.WaitAll(task1, task2);  
+         
+        var taskDetails = _taskManager.GetTaskDetails();
+          
+        Assert.Equal(2, taskDetails.Count);
+        Assert.Contains(taskDetails, t => t.TaskId == task1.Id);
+        Assert.Contains(taskDetails, t => t.TaskId == task2.Id);
+    }
+
+    [Fact]
+    public void GetThreadPoolStatus_ShouldReturnCorrectThreadAvailability()
+    { 
+        var threadPoolMonitor = new ThreadPoolMonitor();
+         
+        ThreadPoolStatus status = threadPoolMonitor.GetThreadPoolStatus();
+         
+        Assert.NotNull(status);
+        Assert.True(status.WorkerThreadsAvailable >= 0);
+        Assert.True(status.IoThreadsAvailable >= 0);
     }
 
 
