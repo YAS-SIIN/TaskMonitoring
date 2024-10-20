@@ -28,6 +28,7 @@ Or, through the NuGet Package Manager in Visual Studio:
 - Search for TaskMonitoring.
 - Click Install.
 
+NuGet Package: [TaskMonitoring](https://www.nuget.org/packages/TaskMonitoring/)
 
 ## Usage
 Monitoring ThreadPool and Tasks
