@@ -65,5 +65,18 @@ public class TaskManagerTests
         Assert.Contains(taskDetails, t => t.TaskId == task2.Id);
     }
 
+    [Fact]
+    public void TrackTask_ShouldCaptureTaskExceptions()
+    { 
+        var task = Task.Run(() => throw new InvalidOperationException());
+         
+        var taskInfo = _taskManager.TrackTask(task);
 
+        // Check the task throws the exception
+        Assert.Throws<AggregateException>(() => task.Wait()); 
+         
+        Assert.Equal(TaskStatus.Faulted, taskInfo.Status);
+        Assert.NotNull(taskInfo.Exception);
+        Assert.IsType<InvalidOperationException>(taskInfo.Exception.InnerException);
+    }
 }
