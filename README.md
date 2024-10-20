@@ -36,7 +36,7 @@ To monitor thread and task activity, you can use the ThreadTaskMonitor class, wh
 
 ### Example:
 
-```chsarp
+```csharp
 using TaskMonitoring;
 
 var monitor = new ThreadTaskMonitor();
@@ -64,7 +64,8 @@ foreach (var taskInfo in taskDetails)
 The library includes a custom TaskScheduler called MonitoringTaskScheduler that tracks tasks as they are scheduled and executed.
 
 ### Example:
-```chsarp
+
+```csharp
 var monitoringScheduler = new MonitoringTaskScheduler();
 var taskFactory = new TaskFactory(monitoringScheduler);
 
