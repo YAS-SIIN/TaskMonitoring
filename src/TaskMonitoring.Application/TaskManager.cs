@@ -15,9 +15,9 @@ public class TaskManager : ITaskManager
     /// <returns>The count of pending tasks.</returns>
     public int GetPendingTaskCount()
     {
-        return _tasks.Values.Count(t => t.Status == TaskStatus.WaitingToRun || t.Status == TaskStatus.Running);
+        return _tasks.Values.Count(t => t.Status == TaskStatus.WaitingToRun || t.Status == TaskStatus.Running || t.Status == TaskStatus.Created);
     }
-
+     
     /// <summary>
     /// Returns a list of details about all tracked tasks, including their ID, status, and duration.
     /// </summary>

@@ -32,4 +32,18 @@ public class TaskManagerTests
         Assert.Null(taskInfo.Exception);
     }
 
+    [Fact]
+    public void GetPendingTaskCount_ShouldReturnPendingTasks()
+    { 
+        var task1 = new Task(() => Task.Delay(1000));
+        var task2 = new Task(() => Task.Delay(1000));
+
+        _taskManager.TrackTask(task1);
+        _taskManager.TrackTask(task2);
+        var pendingTaskCount = _taskManager.GetPendingTaskCount();
+         
+        Assert.Equal(2, pendingTaskCount);
+    }
+
+
 }
