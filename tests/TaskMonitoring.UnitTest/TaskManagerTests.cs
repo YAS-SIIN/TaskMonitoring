@@ -22,10 +22,10 @@ public class TaskManagerTests
     {
         // Create a simple task
         var task = Task.Run(() => { });
-         
+
         var taskInfo = _taskManager.TrackTask(task);
-        task.Wait(); 
-         
+        task.Wait();
+
         Assert.Equal(task.Id, taskInfo.TaskId);
         Assert.NotNull(taskInfo.StartTime);
         Assert.NotNull(taskInfo.EndTime);
@@ -41,25 +41,25 @@ public class TaskManagerTests
 
         _taskManager.TrackTask(task1);
         _taskManager.TrackTask(task2);
-  
+
 
         var pendingTaskCount = _taskManager.GetPendingTaskCount();
-         
+
         Assert.Equal(2, pendingTaskCount);
     }
 
     [Fact]
     public void GetTaskDetails_ShouldReturnAllTrackedTasks()
-    { 
+    {
         var task1 = Task.Run(() => { });
         var task2 = Task.Run(() => { });
 
         _taskManager.TrackTask(task1);
         _taskManager.TrackTask(task2);
-        Task.WaitAll(task1, task2);  
-         
+        Task.WaitAll(task1, task2);
+
         var taskDetails = _taskManager.GetTaskDetails();
-          
+
         Assert.Equal(2, taskDetails.Count);
         Assert.Contains(taskDetails, t => t.TaskId == task1.Id);
         Assert.Contains(taskDetails, t => t.TaskId == task2.Id);
@@ -67,16 +67,34 @@ public class TaskManagerTests
 
     [Fact]
     public void TrackTask_ShouldCaptureTaskExceptions()
-    { 
+    {
         var task = Task.Run(() => throw new InvalidOperationException());
-         
+
         var taskInfo = _taskManager.TrackTask(task);
 
         // Check the task throws the exception
-        Assert.Throws<AggregateException>(() => task.Wait()); 
-         
+        Assert.Throws<AggregateException>(() => task.Wait());
+
         Assert.Equal(TaskStatus.Faulted, taskInfo.Status);
         Assert.NotNull(taskInfo.Exception);
         Assert.IsType<InvalidOperationException>(taskInfo.Exception.InnerException);
+    }
+
+
+    [Fact]
+    public void GetCompletedTaskCount_ShouldReturnCompletedTasks()
+    {
+
+        var task1 = Task.Run(() => Task.Delay(500));
+        var task2 = Task.Run(() => Task.Delay(500));
+
+        _taskManager.TrackTask(task1);
+        _taskManager.TrackTask(task2);
+
+        Task.WaitAll(task1, task2);
+         
+        var completedTaskCount = _taskManager.GetTaskDetails().Count(t => t.Status == TaskStatus.RanToCompletion);
+         
+        Assert.Equal(2, completedTaskCount); 
     }
 }
