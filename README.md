@@ -19,7 +19,7 @@ You can install this package from NuGet using the .NET CLI:
 
 ```bash
 dotnet add package TaskMonitoring
-
+```
 
 Or, through the NuGet Package Manager in Visual Studio:
 
