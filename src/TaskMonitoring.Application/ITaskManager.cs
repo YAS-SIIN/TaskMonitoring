@@ -5,5 +5,7 @@ namespace TaskMonitoring.Application;
 
 public interface ITaskManager
 {
- 
+    TaskInfo TrackTask(Task task);
+    int GetPendingTaskCount();
+    List<TaskInfo> GetTaskDetails();
 }

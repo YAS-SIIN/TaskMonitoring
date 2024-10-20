@@ -8,7 +8,8 @@ public class TaskManager : ITaskManager
 {
 
     private readonly ConcurrentDictionary<int, TaskInfo> _tasks = new();
-     
+
+  
     /// <summary>
     /// Retrieves the count of pending tasks, which are either waiting to run or currently running.
     /// </summary>
@@ -25,5 +26,10 @@ public class TaskManager : ITaskManager
     public List<TaskInfo> GetTaskDetails()
     {
         return _tasks.Values.ToList();
+    }
+
+    public TaskInfo TrackTask(Task task)
+    {
+        throw new NotImplementedException();
     }
 }
