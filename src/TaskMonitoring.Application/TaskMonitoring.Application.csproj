@@ -12,7 +12,11 @@
 	  <PackageId>TaskMonitoring</PackageId>
 	  <Version>1.0.0</Version>
 	  <Authors>Yasin Asadnezhad</Authors>
-	  <Description>A C# library to monitor and manage tasks and ThreadPool usage.</Description>
+	  <Description>Task Monitoring is a C# library designed to monitor and manage Task and ThreadPool usage in .NET applications. It provides an API to expose runtime statistics, such as the number of active threads and tasks, and detailed task execution information.</Description>
+ 
+	  <PackageProjectUrl>https://www.nuget.org/packages/TaskMonitoring/</PackageProjectUrl> 
+	  <RepositoryType>git</RepositoryType>
+	  
 	  <PackageTags>ThreadPool Task Monitoring NuGet</PackageTags>
 	  <RepositoryUrl>https://github.com/YAS-SIIN/TaskMonitoring</RepositoryUrl>
   </PropertyGroup>
