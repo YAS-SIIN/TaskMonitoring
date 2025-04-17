@@ -2,13 +2,15 @@
 
 using TaskMonitoring.Application.Models;
 
-namespace TaskMonitoring.Application;
-
-public interface IThreadPoolMonitor
+namespace TaskMonitoring.Application
 {
-    int GetActiveThreadCount();
-    ThreadPoolStatus GetThreadPoolStatus();
-    void SetMinThreads(ThreadPoolStatus threadPoolStatus);
-    void SetMaxThreads(ThreadPoolStatus threadPoolStatus);
+    public interface IThreadPoolMonitor
+    {
+        int GetActiveThreadCount();
+        ThreadPoolStatus GetThreadPoolStatus();
+        void SetMinThreads(ThreadPoolStatus threadPoolStatus);
+        void SetMaxThreads(ThreadPoolStatus threadPoolStatus);
 
+    }
 }
+
