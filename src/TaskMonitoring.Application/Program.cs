@@ -12,7 +12,6 @@ class Program
         var task = Task.Run(() => { });
 
         var taskInfo = _taskManager.TrackTask(task);
-
         task.Wait();
 
         Console.WriteLine($"TaskId: {taskInfo.TaskId}");
