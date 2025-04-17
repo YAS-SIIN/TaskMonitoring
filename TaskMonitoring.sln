@@ -5,7 +5,11 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskMonitoring.Application", "src\TaskMonitoring.Application\TaskMonitoring.Application.csproj", "{914663AC-FB50-4279-9010-B3E7777C4E0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskMonitoring.UnitTest", "tests\TaskMonitoring.UnitTest\TaskMonitoring.UnitTest.csproj", "{9ABF7B02-003F-4616-B1D0-1C7F53DCBCB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskMonitoring.UnitTest", "test\TaskMonitoring.UnitTest\TaskMonitoring.UnitTest.csproj", "{9ABF7B02-003F-4616-B1D0-1C7F53DCBCB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A2EF2B26-881C-4FF4-962C-E534B115CF77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +28,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{914663AC-FB50-4279-9010-B3E7777C4E0C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{9ABF7B02-003F-4616-B1D0-1C7F53DCBCB3} = {A2EF2B26-881C-4FF4-962C-E534B115CF77}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7A3E2854-290B-40C9-8F5B-EA7287552E25}
