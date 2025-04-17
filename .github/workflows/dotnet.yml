@@ -22,7 +22,7 @@ jobs:
 
       # Step 3: Restore dependencies
       - name: Restore dependencies
-        run: dotnet restore [path].Project.csproj
+        run: dotnet restore src\TaskMonitoring.Application\TaskMonitoring.Application.csproj
 
       # Step 4: Build the project
       - name: Build
