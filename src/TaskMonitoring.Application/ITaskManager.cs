@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using TaskMonitoring.Application.Models;
 
 namespace TaskMonitoring.Application

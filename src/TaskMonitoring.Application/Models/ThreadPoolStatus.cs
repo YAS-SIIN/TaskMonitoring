@@ -1,8 +1,11 @@
 ﻿
-namespace TaskMonitoring.Application.Models;
-
-public class ThreadPoolStatus
+namespace TaskMonitoring.Application.Models
 {
-    public int WorkerThreadsAvailable { get; set; }
-    public int IoThreadsAvailable { get; set; }
+    public class ThreadPoolStatus
+    {
+        public int WorkerThreadsAvailable { get; set; }
+        public int IoThreadsAvailable { get; set; }
+    }
+
 }
+

@@ -1,5 +1,9 @@
 ﻿
+using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using TaskMonitoring.Application.Models;
 
 namespace TaskMonitoring.Application
@@ -7,7 +11,7 @@ namespace TaskMonitoring.Application
     public class TaskManager : ITaskManager
     {
 
-        private readonly ConcurrentDictionary<int, TaskInfo> _tasks = new();
+        private readonly ConcurrentDictionary<int, TaskInfo> _tasks = new ConcurrentDictionary<int, TaskInfo>();
 
         /// <summary>
         /// Retrieves the count of pending tasks, which are either waiting to run or currently running.
