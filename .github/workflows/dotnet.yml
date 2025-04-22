@@ -22,15 +22,15 @@ jobs:
 
       # Step 3: Restore dependencies
       - name: Restore dependencies
-        run: dotnet restore [path].Project.csproj
+        run: dotnet restore /home/runner/work/TaskMonitoring/TaskMonitoring/src/TaskMonitoring.Application/TaskMonitoring.Application.csproj 
 
       # Step 4: Build the project
       - name: Build
-        run: dotnet build [path].Project.csproj --configuration Release --no-restore
+        run: dotnet build /home/runner/work/TaskMonitoring/TaskMonitoring/src/TaskMonitoring.Application/TaskMonitoring.Application.csproj --configuration Release --no-restore
 
        # Step 5: Pack the project
       - name: Pack
-        run: dotnet pack [path].Project.csproj --configuration Release --no-build -o ./packages
+        run: dotnet pack /home/runner/work/TaskMonitoring/TaskMonitoring/src/TaskMonitoring.Application/TaskMonitoring.Application.csproj --configuration Release --no-build -o ./packages
 
       # Step 6: Publish package to GitHub Packages
       - name: Publish to GitHub Packages
